@@ -1,0 +1,26 @@
+.popap__close-btn {
+  border: none;
+  background: none;
+  position: absolute;
+  background-image: url(../../../images/close-icon.svg);
+  background-size: 32px 32px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 33px;
+  height: 33px;
+  right: -41px;
+  top: -41px;
+}
+
+.popap__close-btn:hover {
+  opacity: 0.6;
+}
+
+@media (max-width : 680px) {
+  .popap__close-btn {
+    width: 21px;
+    top: -41px;
+    right: 1px;
+  }
+}

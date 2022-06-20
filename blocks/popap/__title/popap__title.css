@@ -1,4 +1,4 @@
-.edit-form__title {
+.popap__title {
   margin: 0;
   color: #000;
   font-weight: 900;
@@ -7,7 +7,7 @@
 }
 
 @media (max-width : 570px) {
-  .edit-form__title {
+  .popap__title {
     font-size: 18px;
     line-height: 22px;
   }

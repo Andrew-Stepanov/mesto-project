@@ -1,5 +1,6 @@
-.edit-form__container {
+.popap__container {
   position: relative;
+  box-sizing: border-box;
   margin: 0 19px;
   max-width: 430px;
   background: #FFFFFF;
@@ -11,7 +12,7 @@
   justify-content: space-between;
 }
 @media (max-width : 570px) {
-  .edit-form__container {
+  .popap__container {
     padding: 25px 22px;
   }
 }
