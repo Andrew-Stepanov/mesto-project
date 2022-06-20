@@ -1,6 +1,0 @@
-.profile__info {
-  grid-area: info;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}

@@ -4,7 +4,7 @@
   background-color: #000000;
   margin: 0 27px;
   color: #fff;
-  font-family: 400;
+  font-weight: 400;
 }
 
 @media (max-width : 680px) {
