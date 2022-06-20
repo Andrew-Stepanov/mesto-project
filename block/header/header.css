@@ -1,0 +1,13 @@
+.header {
+  max-width: 880px;
+  padding: 0 0 40px;
+  border-bottom: 1px solid #545454;;
+  margin:  45px auto 40px;
+}
+
+@media (max-width : 680px) {
+  .header {
+    margin: 24px 0 40px;
+    padding: 0 0 23px;
+  }
+}

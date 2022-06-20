@@ -1,0 +1,14 @@
+.root {
+  font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
+  box-sizing: border-box;
+  background-color: #000000;
+  margin: 0 27px;
+  color: #fff;
+  font-family: 400;
+}
+
+@media (max-width : 680px) {
+  .root {
+    margin: 0;
+  }
+}

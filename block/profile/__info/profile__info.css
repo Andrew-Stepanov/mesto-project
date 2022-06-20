@@ -1,0 +1,11 @@
+.profile__info {
+  grid-area: info;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (max-width : 680px) {
+  .profile__info {
+    margin-left: 18px;
+  }
+}

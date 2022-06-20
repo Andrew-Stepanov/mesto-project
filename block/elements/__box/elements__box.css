@@ -1,0 +1,8 @@
+.elements__box {
+  box-sizing: border-box;
+  width: 282px;
+  height: 362px;
+  display: grid;
+  grid-template-columns: 282px;
+  grid-template-rows: 282px 80px;
+}
