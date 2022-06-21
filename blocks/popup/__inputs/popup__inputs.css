@@ -1,8 +1,8 @@
-.popap__inputs {
+.popup__inputs {
   margin-top: 20px;
 }
 @media (max-width: 570px) {
-  .popap__inputs {
+  .popup__inputs {
     margin-top: 42px;
   }
 }

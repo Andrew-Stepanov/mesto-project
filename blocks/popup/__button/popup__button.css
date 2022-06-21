@@ -1,4 +1,4 @@
-.popap__button {
+.popup__button {
   margin-top: 48px;
   border: none;
   width: 100%;
@@ -12,12 +12,12 @@
   text-align: center;
 }
 
-.popap__button:hover {
+.popup__button:hover {
   opacity: 0.8;
 }
 
 @media (max-width: 570px) {
-  .popap__button {
+  .popup__button {
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
