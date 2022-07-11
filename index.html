@@ -17,11 +17,21 @@
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <p class="profile__bio">Исследователь океана</p>
         </div>
-        <button onclick="openEditForm()" type="button" class="profile__edit-button"></button>
-        <button onclick="openAddCardForm()" type="button" class="profile__add-button"></button>
+        <button type="button" class="profile__edit-button"></button>
+        <button type="button" class="profile__add-button"></button>
       </section>
       <section class="elements">
-
+      <template id="element">
+        <div class="elements__box">
+          <button class="elements__delete" type="button" id=""></button>
+          <img id="" src="/" alt="" class="elements__image">
+          <div class="elements__text">
+            <h2 class="elements__title"></h2>
+            <button class="elements__heart" type="button">
+            </button>
+          </div>
+        </div>
+      </template>
       </section>
     </main>
     <footer class="footer">
@@ -29,7 +39,7 @@
     </footer>
     <div id="popup" class="popup">
       <div class="popup__container">
-        <button onclick="closeEditForm()" type="button" class="popup__close-btn"></button>
+        <button type="button" class="popup__close-btn"></button>
         <h3 class="popup__title">Редактировать профиль</h3>
           <form action="/" class="popup__inputs" name="edit-profile" id="edit-profile">
             <input class="popup__input" type="text" name="name" placeholder="Имя" id="name" minlength="1" maxlength="20">
@@ -40,7 +50,7 @@
     </div>
     <div id="popup-addcard" class="popup">
       <div class="popup__container">
-        <button onclick="closeAddCardForm()" type="button" class="popup__close-btn"></button>
+        <button type="button" class="popup__close-btn"></button>
         <h3 class="popup__title">Новое место</h3>
           <form action="/" class="popup__inputs" name="add-place" id="add-place">
             <input class="popup__input" type="text" name="place" placeholder="Название" id="place" required>
@@ -49,13 +59,13 @@
           </form>
       </div>
     </div>
-    <div id="popup-image" class="popup">
-      <div class="popup__container_image">
-        <button onclick="closeImagePopup()" type="button" class="popup__close-btn"></button>
-        <img class="popup__image" src="" alt="">
+    <div id="popup-image" class="popup popup_dark">
+      <div class="popup_image">
+        <button type="button" class="popup__close-btn"></button>
+        <img class="popup__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg" alt="Байкал">
         <p class="popup__subtitle"></p>
       </div>
     </div>
-    <script src="./pages/script.js"></script>
+    <script src="./pages/index.js"></script>
 </body>
 </html>
