@@ -13,7 +13,7 @@ const popImage = document.querySelector('#popup-image'); // Окно Попап�
 
 const profileEditBtn = document.querySelector('.profile__edit-button'); // Кнопка редактирования профиля
 const cardAddBtn = document.querySelector('.profile__add-button'); // Кнопка добавления карточки
-const popup = document.querySelector('#popup');
+const popupEditProfile = document.querySelector('#popup-edit-profile');
 const popupAddCard = document.querySelector('#popup-addcard');
 
 const cardsTemplate = document.querySelector('#element').content;
@@ -61,23 +61,24 @@ const initialCards = [
 
 
 function openEditForm() {
-  const element = document.querySelector('#popup');
   popupEditName.setAttribute('value', profileName.textContent);
   popupEditBio.setAttribute('value', profileBio.textContent);
-  element.classList.add("popup_opened");
+  openPopup(popupEditProfile);
 }
 function openAddCardForm() {
-  const element = document.querySelector('#popup-addcard');
-  element.classList.add("popup_opened");
+  openPopup(popupAddCard);
 }
 
-const popupCloseBtn = document.querySelectorAll('.popup__close-btn');
+const popupCloseBtns = document.querySelectorAll('.popup__close-btn');
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
 }
+function openPopup(popup) {
+  popup.classList.add("popup_opened");
+}
 
-popupCloseBtn.forEach((c) => {
+popupCloseBtns.forEach((c) => {
   c.addEventListener('click', (event) => {
     closePopup(event.target.parentElement.parentElement);
   })
@@ -96,7 +97,7 @@ function saveProfileHandler (evt) {
 
     profileName.textContent = popupEditName.value;
     profileBio.textContent = popupEditBio.value;
-    popup.classList.remove("popup_opened");
+    closePopup(popupEditProfile);
 
 }
 
@@ -105,7 +106,7 @@ function saveProfileHandler (evt) {
 formEditProfile.addEventListener('submit', saveProfileHandler);
 
 // Находим форму в DOM
-const formAddCard = document.querySelector('#popup-addcard');// Воспользуйтесь методом querySelector()
+const formAddCard = document.querySelector('#add-place');// Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
 
 function addCardHandler (evt) {
@@ -113,7 +114,7 @@ function addCardHandler (evt) {
                                                 // Так мы можем определить свою логику отправки.
                                                 // О том, как это делать, расскажем позже.
     addElementBox(popupAddCardPlace.value, popupAddCardLink.value, initialCards.length-1);
-    popupAddCard.classList.remove("popup_opened");
+    closePopup(popupAddCard);
     popupAddCardPlace.value = '';
     popupAddCardLink.value = '';
 }
@@ -122,25 +123,30 @@ formAddCard.addEventListener('submit', addCardHandler);
 
 
 function addElementBox(cardName, cardImageLink, id) {
-  let newElement = cardsTemplate.querySelector('.elements__box').cloneNode(true);
-  newElement.querySelector('.elements__image').src = cardImageLink;
-  newElement.querySelector('.elements__image').id = id + '-image';
-  newElement.querySelector('.elements__image').alt = cardName;
-  newElement.querySelector('.elements__title').textContent = cardName;
-  newElement.querySelector('.elements__heart').id = id + '-like';
-  newElement.querySelector('.elements__delete').id = id;
+  const newElement = cardsTemplate.querySelector('.elements__box').cloneNode(true);
+  let elementImage = newElement.querySelector('.elements__image');
+  let elementHeart = newElement.querySelector('.elements__heart');
+  let elementDelete = newElement.querySelector('.elements__delete');
+  let elementTitle = newElement.querySelector('.elements__title');
+  elementImage.src = cardImageLink;
+  elementImage.id = id + '-image';
+  elementImage.alt = cardName;
+  elementTitle.textContent = cardName;
+  elementHeart.id = id + '-like';
+  elementDelete.id = id;
   elementBox.prepend(newElement);
-  newElement.querySelector('.elements__delete').addEventListener('click', () => {
+  console.log(newElement);
+  elementDelete.addEventListener('click', () => {
     newElement.remove();
   });
-  newElement.querySelector('.elements__heart').addEventListener('click', () => {
-    newElement.querySelector('.elements__heart').classList.toggle("elements__heart_liked");
+  elementHeart.addEventListener('click', () => {
+    elementHeart.classList.toggle("elements__heart_liked");
   });
-  newElement.querySelector('.elements__image').addEventListener('click', (event) => {
+  elementImage.addEventListener('click', (event) => {
          onClickImage(event);
   });
-
 }
+
 
 for (i in initialCards) {
   addElementBox(initialCards[i].name, initialCards[i].link, i);
