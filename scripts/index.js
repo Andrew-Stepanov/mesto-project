@@ -135,9 +135,13 @@ function addElementBox(cardName, cardImageLink, id) {
   elementHeart.id = id + '-like';
   elementDelete.id = id;
   elementBox.prepend(newElement);
-  console.log(newElement);
+  addListeners(elementDelete, elementHeart, elementImage);
+
+}
+
+function addListeners(elementDelete, elementHeart, elementImage) {
   elementDelete.addEventListener('click', () => {
-    newElement.remove();
+    elementDelete.parentElement.remove();
   });
   elementHeart.addEventListener('click', () => {
     elementHeart.classList.toggle("elements__heart_liked");
@@ -146,7 +150,6 @@ function addElementBox(cardName, cardImageLink, id) {
          onClickImage(event);
   });
 }
-
 
 for (i in initialCards) {
   addElementBox(initialCards[i].name, initialCards[i].link, i);
