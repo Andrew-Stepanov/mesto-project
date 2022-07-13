@@ -113,7 +113,7 @@ function addCardHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
                                                 // Так мы можем определить свою логику отправки.
                                                 // О том, как это делать, расскажем позже.
-    addElementBox(popupAddCardPlace.value, popupAddCardLink.value, initialCards.length-1);
+    addCardToContainer(addElementBox(popupAddCardPlace.value, popupAddCardLink.value, initialCards.length-1));
     closePopup(popupAddCard);
     popupAddCardPlace.value = '';
     popupAddCardLink.value = '';
@@ -124,19 +124,23 @@ formAddCard.addEventListener('submit', addCardHandler);
 
 function addElementBox(cardName, cardImageLink, id) {
   const newElement = cardsTemplate.querySelector('.elements__box').cloneNode(true);
-  let elementImage = newElement.querySelector('.elements__image');
-  let elementHeart = newElement.querySelector('.elements__heart');
-  let elementDelete = newElement.querySelector('.elements__delete');
-  let elementTitle = newElement.querySelector('.elements__title');
+  const elementImage = newElement.querySelector('.elements__image');
+  const elementHeart = newElement.querySelector('.elements__heart');
+  const elementDelete = newElement.querySelector('.elements__delete');
+  const elementTitle = newElement.querySelector('.elements__title');
   elementImage.src = cardImageLink;
   elementImage.id = id + '-image';
   elementImage.alt = cardName;
   elementTitle.textContent = cardName;
   elementHeart.id = id + '-like';
   elementDelete.id = id;
-  elementBox.prepend(newElement);
   addListeners(elementDelete, elementHeart, elementImage);
+  return newElement;
 
+}
+
+function addCardToContainer(element) {
+  elementBox.prepend(element);
 }
 
 function addListeners(elementDelete, elementHeart, elementImage) {
@@ -152,7 +156,7 @@ function addListeners(elementDelete, elementHeart, elementImage) {
 }
 
 for (i in initialCards) {
-  addElementBox(initialCards[i].name, initialCards[i].link, i);
+  addCardToContainer(addElementBox(initialCards[i].name, initialCards[i].link, i));
 }
 
 

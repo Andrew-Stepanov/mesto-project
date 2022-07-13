@@ -1,4 +1,4 @@
-.popup_content_image {
+.popup__image-container {
   position: relative;
   display: flex;
   flex-direction: column;
